@@ -30,6 +30,7 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
             dataType: 'json',
             async : false,
             cache: false,
+            timeout: 5000
           });
           if (res.responseJSON.error) {
             console.error(res.responseJSON.error);
