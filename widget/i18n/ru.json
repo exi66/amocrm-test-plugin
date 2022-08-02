@@ -1,0 +1,11 @@
+{
+    "widget":{
+        "name":"Мой виджет",
+        "short_description":"Короткое описание виджета",
+        "description":"Полное описание виджета",
+        "tour_description":"by exi66"
+    },
+    "settings":{
+        "name":"Name"
+    }
+}
