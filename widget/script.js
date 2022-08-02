@@ -6,6 +6,7 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
 
     this.callbacks = {
       render: function () {
+		    console.log('render');
         self.render_template({
           body: '',
           caption: {
@@ -13,15 +14,7 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
           },
           render: '<button type="button" class="my-button button-input">Список товаров</button>'
         });
-        return true;
-      },
-
-      init: function () {
-        return true;
-      },
-
-      bind_actions: function () {
-        $('.my-button').on('click', function () {
+		$('.my-button').on('click', function () {
           var page = window.location.pathname.split('/');
           var id = page.pop() || page.pop();
           var res = $.ajax({
@@ -30,11 +23,10 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
             dataType: 'json',
             async : false,
             cache: false,
-            timeout: 5000
+            timeout: 10000
           });
           if (res.responseJSON.error) {
             console.error(res.responseJSON.error);
-            return true;
           }
           var data = '<h1>Товары</h1><ul>';
           for (let elem of res.responseJSON) {
@@ -55,7 +47,15 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
 
               }
           });
-        })
+        })		
+        return true;
+      },
+
+      init: function () {
+        return true;
+      },
+
+      bind_actions: function () {
         return true;
       },
 
