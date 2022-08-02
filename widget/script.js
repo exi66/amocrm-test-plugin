@@ -3,10 +3,11 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
 
   return function () {
     var self = this;
+    var host = 'sys.polypha.ga';
 
     this.callbacks = {
       render: function () {
-		    console.log('render');
+        console.log('render');
         self.render_template({
           body: '',
           caption: {
@@ -14,11 +15,11 @@ define(['jquery', 'lib/components/base/modal'], function ($, Modal) {
           },
           render: '<button type="button" class="my-button button-input">Список товаров</button>'
         });
-		$('.my-button').on('click', function () {
+        $('.my-button').on('click', function () {
           var page = window.location.pathname.split('/');
           var id = page.pop() || page.pop();
           var res = $.ajax({
-            url: 'https://sys.polypha.ga/test/leads/'+id,
+            url: 'https://' + host + '/test/leads/' + id,
             type: 'GET',
             dataType: 'json',
             async : false,
